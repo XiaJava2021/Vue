@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+    <script type="text/javascript" src="static/vue.min.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+
+    <input type="text" @keydown="validate($event)">
+
+</div>
+
+<!--使用 vue
+    1. 引入 vue.js
+    2. 创建一个 vue 对象,并指定 el 属性, data 属性, methods 属性
+    3. 在页面中指定一个 vue 控制的区域
+-->
+
+<script>
+    var vm = new Vue({
+        el: "#app",     // 表示当前 vue 对象要控制的区域
+        data: {
+
+        },
+        methods: {
+            validate: function (e) {
+                console.log(e);
+                var keyCode = e.keyCode;
+                if ((keyCode != 8 && keyCode < 48) || keyCode > 57 || e.shiftKey == true){
+                    e.preventDefault();
+                }
+            }
+        }
+    });
+
+</script>
+
+
+</body>
+</html>

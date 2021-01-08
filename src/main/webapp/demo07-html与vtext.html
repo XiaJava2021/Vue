@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="static/vue.min.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+
+    <div>-----------{{message}}-------------</div>
+
+    <div v-html="message">------------</div>
+    <div v-text="message">------------</div>
+
+</div>
+
+<!--使用 vue
+    1. 引入 vue.js
+    2. 创建一个 vue 对象,并指定 el 属性, data 属性, methods 属性
+    3. 在页面中指定一个 vue 控制的区域
+-->
+
+<script>
+    new Vue({
+        el: "#app",     // 表示当前 vue 对象要控制的区域
+        data: {
+            message:"<h1>您好</h1>"
+        },
+        methods: {
+
+        }
+    });
+
+</script>
+
+
+</body>
+</html>

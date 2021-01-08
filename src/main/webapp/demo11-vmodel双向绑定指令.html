@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script type="text/javascript" src="static/vue.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="app">
+    <!--
+        v-model 是 vue 中唯一一个双向绑定指令
+        v-model 只支持表单元素(键值对对应元素)
+    -->
+    <form>
+        <p>
+            {{username}}
+            用户名:<input type="text" v-model="username">
+        </p>
+        <p>
+            {{password}}
+            密码:<input type="password" v-model="password">
+        </p>
+        <p>
+            {{city}}
+            城市:
+            <select v-model="city">
+                <option value="1">南京</option>
+                <option value="2">北京</option>
+                <option value="3">西京</option>
+                <option value="4">东京</option>
+                <option value="5">上京</option>
+            </select>
+        </p>
+        <p>
+            {{gender}}
+            性别:
+            <input type="radio" v-model="gender" value="1">男
+            <input type="radio" v-model="gender" value="0">女
+        </p>
+        <p>
+            {{hobby}}
+            性别:
+            <input type="checkbox" v-model="hobby" value="1">唱歌
+            <input type="checkbox" v-model="hobby" value="2">跳舞
+            <input type="checkbox" v-model="hobby" value="3">rap
+            <input type="checkbox" v-model="hobby" value="4">篮球
+            <input type="checkbox" v-model="hobby" value="5">女装
+        </p>
+        <p>
+           描述信息:{{description}}
+            <textarea v-model="description">
+                我是个描述信息框
+            </textarea>
+        </p>
+
+
+    </form>
+</div>
+
+    <script>
+
+        new Vue({
+            el:"#app",
+            data:{
+                username:"张三",
+                password:123456,
+                city:"北京",
+                gender:1,
+                hobby:[],
+                description:"等待"
+            }
+        });
+    </script>
+</body>
+</html>

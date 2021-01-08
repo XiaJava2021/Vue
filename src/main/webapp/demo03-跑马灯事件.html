@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+    <script type="text/javascript" src="static/vue.min.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+
+    {{message}}
+    <input type="button" value="跑起来" @click="pao()">
+    <input type="button" value="别跑" @click="stop()">
+
+
+</div>
+
+<!--使用 vue
+    1. 引入 vue.js
+    2. 创建一个 vue 对象,并指定 el 属性, data 属性, methods 属性
+    3. 在页面中指定一个 vue 控制的区域
+-->
+
+<script>
+    var vm = new Vue({
+        el: "#app",     // 表示当前 vue 对象要控制的区域
+        data: {
+           message:"床前明月光,疑似地上霜,举头看看天,回首四顾心茫然.",
+           intervalId:null
+        },
+        methods:{
+            pao:function () {
+                if (this.intervalId != null){
+                    return;
+                }
+                // function 内部默认不支持 this 关键字,需要使用箭头函数
+                //
+                var _this = this;
+                this.intervalId = window.setInterval(function () {
+                    var start = _this.message.substring(0,1);
+                    var end = _this.message.substring(1);
+                    _this.message = end + start;
+                },100)
+
+            },
+            stop:function () {
+                clearInterval(this.intervalId);
+                this.intervalId = null;
+            }
+        }
+    });
+
+</script>
+
+
+</body>
+</html>

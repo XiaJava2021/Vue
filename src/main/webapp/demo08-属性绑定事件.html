@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="static/vue.min.js"></script>
+    <style>
+
+        .red{
+            color: red;
+        }
+
+        .big{
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+    <div class="red big">内容变红加大</div>
+    <br/>
+    <div v-bind:class="{red:isRed}">红色文</div>
+    <div v-bind:class="{big:isBig}">变大文</div>
+    <div v-bind:class="{red:isRed,big:isBig}">变红加大文</div>
+    <br/>
+    <div v-bind:class="[red]">红色文</div>
+    <div v-bind:class="[big]">变大文</div>
+    <div v-bind:class="[red,big]">变红加大文</div>
+    <br>
+    <div :class="['red']">红色文</div>
+    <div :class="['big']">变大文</div>
+    <div :class="['red','big']">变红加大文</div>
+    <br>
+
+    <a href="" :href="wawo">快去百度</a>
+    <br>
+    <a :href="guigu">尚硅谷</a>
+
+</div>
+
+
+
+<!--使用 vue
+    1. 引入 vue.js
+    2. 创建一个 vue 对象,并指定 el 属性, data 属性, methods 属性
+    3. 在页面中指定一个 vue 控制的区域
+-->
+
+<script>
+    new Vue({
+        el: "#app",     // 表示当前 vue 对象要控制的区域
+        data: {
+            isRed:true,
+            isBig:true,
+            red:"red",
+            big:"big",
+            /*网址跳转需要加入 http:// 否则在本项目下跳转*/
+            wawo:"http://www.baidu.com",
+            guigu:"http://atguigu.com"
+        },
+        methods: {
+
+        }
+    });
+
+</script>
+
+
+</body>
+</html>
